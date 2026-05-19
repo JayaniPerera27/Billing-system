@@ -382,10 +382,10 @@ td:nth-child(2) {
 }
 
 .signature-line {
-  background: #1c2024;
+  border-top: 1px dashed #1c2024;
   height: 1px;
-  margin: 0 0 3px;
-  width: 230px;
+  margin: 8px 0 6px;
+  width: 178px;
 }
 
 .signature-stack strong {
@@ -400,7 +400,7 @@ td:nth-child(2) {
   letter-spacing: 5px;
   line-height: 1.1;
   margin-left: 5px;
-  margin-top: 1px;
+  margin-top: 5px;
 }
 
 @media (max-width: 980px) {
@@ -546,6 +546,6 @@ td:nth-child(2) {
   }
 
   .signature-line {
-    width: 205px;
+    width: 178px;
   }
 }
