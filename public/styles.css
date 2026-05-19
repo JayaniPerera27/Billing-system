@@ -368,7 +368,7 @@ td:nth-child(2) {
 
 .company-stamp {
   height: auto;
-  margin-bottom: -12px;
+  margin-top: 10px;
   max-width: 185px;
   opacity: 0.86;
   width: 100%;
@@ -376,8 +376,7 @@ td:nth-child(2) {
 
 .director-signature {
   height: auto;
-  margin-top: -5px;
-  max-width: 150px;
+  max-width: 115px;
   width: 100%;
   z-index: 1;
 }
@@ -543,7 +542,7 @@ td:nth-child(2) {
   }
 
   .director-signature {
-    max-width: 135px;
+    max-width: 100px;
   }
 
   .signature-line {
