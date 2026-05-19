@@ -270,6 +270,7 @@ textarea {
   font-size: 16px;
   font-weight: 800;
   margin-top: 12px !important;
+  white-space: nowrap !important;
 }
 
 .invoice-meta p,
@@ -353,6 +354,7 @@ td:nth-child(2) {
 .authorization-block {
   display: flex;
   justify-content: flex-start;
+  padding-left: 0;
   margin-top: 38px;
   page-break-inside: avoid;
 }
@@ -364,6 +366,7 @@ td:nth-child(2) {
   min-width: 260px;
   position: relative;
   text-align: center;
+  width: 260px;
 }
 
 .company-stamp {
@@ -452,7 +455,7 @@ td:nth-child(2) {
     background: #fff;
     height: auto;
     margin: 0;
-    width: 210mm;
+    width: 100%;
   }
 
   .workspace,
@@ -462,19 +465,21 @@ td:nth-child(2) {
 
   .app-shell {
     padding: 0;
-    width: 210mm;
+    width: 100%;
   }
 
   .invoice-paper {
     border: 0;
+    box-sizing: border-box;
     box-shadow: none;
     font-size: 11px;
     line-height: 1.25;
     margin: 0;
     max-width: none;
     min-height: 297mm;
-    padding: 8mm 10mm;
-    width: 210mm;
+    overflow: visible;
+    padding: 20mm 22mm;
+    width: 100%;
   }
 
   .letterhead {
@@ -486,10 +491,10 @@ td:nth-child(2) {
     color: #fff !important;
     font-size: 20px;
     height: 36px;
-    margin: 8px -3mm 12px;
+    margin: 8px 0 12px;
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
-    width: calc(100% + 6mm);
+    width: 100%;
   }
 
   .invoice-title-row {
@@ -535,6 +540,7 @@ td:nth-child(2) {
 
   .summary {
     margin-top: 12px;
+    max-width: 390px;
     width: 390px;
   }
 
@@ -562,12 +568,15 @@ td:nth-child(2) {
 
   .authorization-block {
     justify-content: flex-start;
+    padding-left: 0;
     margin-top: 38px;
     page-break-inside: avoid;
   }
 
   .signature-stack {
+    margin-left: 0;
     min-width: 260px;
+    width: 260px;
   }
 
   .company-stamp {
