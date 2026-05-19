@@ -373,7 +373,7 @@ td:nth-child(2) {
 }
 
 .notes-block {
-  margin-top: 34px;
+  margin-top: 64px;
 }
 
 .authorization-block {
@@ -404,7 +404,7 @@ td:nth-child(2) {
 
 .director-signature {
   height: auto;
-  max-width: 115px;
+  max-width: 90px;
   width: 100%;
   z-index: 1;
 }
@@ -588,7 +588,7 @@ td:nth-child(2) {
   }
 
   .notes-block {
-    margin-top: 14px;
+    margin-top: 42px;
   }
 
   .authorization-block {
@@ -611,7 +611,7 @@ td:nth-child(2) {
   }
 
   .director-signature {
-    max-width: 115px;
+    max-width: 85px;
   }
 
   .signature-line {
