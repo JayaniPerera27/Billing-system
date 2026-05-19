@@ -281,7 +281,28 @@ textarea {
 
 table {
   border-collapse: collapse;
+  table-layout: fixed;
   width: 100%;
+}
+
+th:nth-child(1),
+td:nth-child(1) {
+  width: 50%;
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+  width: 14%;
+}
+
+th:nth-child(3),
+td:nth-child(3) {
+  width: 18%;
+}
+
+th:nth-child(4),
+td:nth-child(4) {
+  width: 18%;
 }
 
 th {
@@ -319,8 +340,12 @@ td:nth-child(2) {
   display: grid;
   font-weight: 900;
   gap: 0;
-  grid-template-columns: 95px 175px;
+  grid-template-columns: 112px 175px;
   padding: 9px 0;
+}
+
+.summary span {
+  white-space: nowrap;
 }
 
 .summary strong {
@@ -547,7 +572,7 @@ td:nth-child(2) {
   .summary div {
     font-weight: 900;
     gap: 0;
-    grid-template-columns: 95px 175px;
+    grid-template-columns: 112px 175px;
     padding: 4px 0;
   }
 
