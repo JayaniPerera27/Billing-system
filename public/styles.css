@@ -240,12 +240,14 @@ textarea {
   display: flex;
   font-size: 22px;
   font-weight: 800;
-  height: 34px;
+  height: 40px;
   justify-content: center;
   letter-spacing: 0;
-  margin: 12px 0 24px;
+  margin: 12px -4px 24px;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
   text-transform: uppercase;
-  width: 100%;
+  width: calc(100% + 8px);
 }
 
 .invoice-meta {
@@ -465,9 +467,14 @@ td:nth-child(n + 2) {
   }
 
   .invoice-band {
+    background: var(--brand-red) !important;
+    color: #fff !important;
     font-size: 20px;
-    height: 32px;
-    margin: 8px 0 12px;
+    height: 36px;
+    margin: 8px -3mm 12px;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+    width: calc(100% + 6mm);
   }
 
   .invoice-title-row {
