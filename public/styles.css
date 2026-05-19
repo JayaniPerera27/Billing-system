@@ -261,7 +261,9 @@ textarea {
 }
 
 .invoice-details {
-  text-align: right;
+  justify-self: end;
+  text-align: left;
+  width: fit-content;
 }
 
 .project-name {
@@ -428,7 +430,7 @@ td:nth-child(n + 2) {
   }
 
   .invoice-details {
-    text-align: left;
+    justify-self: start;
   }
 }
 
