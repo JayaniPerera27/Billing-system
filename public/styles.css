@@ -311,15 +311,15 @@ td:nth-child(2) {
 
 .summary {
   margin: 22px 0 0 auto;
-  max-width: 390px;
-  width: 390px;
+  max-width: 270px;
+  width: 270px;
 }
 
 .summary div {
   display: grid;
   font-weight: 900;
-  gap: 12px;
-  grid-template-columns: 145px 233px;
+  gap: 0;
+  grid-template-columns: 95px 175px;
   padding: 9px 0;
 }
 
@@ -330,7 +330,7 @@ td:nth-child(2) {
   font-weight: 900 !important;
   justify-self: end;
   letter-spacing: 0;
-  min-width: 233px;
+  min-width: 175px;
   text-align: right;
   white-space: nowrap;
 }
@@ -540,21 +540,21 @@ td:nth-child(2) {
 
   .summary {
     margin-top: 12px;
-    max-width: 390px;
-    width: 390px;
+    max-width: 270px;
+    width: 270px;
   }
 
   .summary div {
     font-weight: 900;
-    gap: 12px;
-    grid-template-columns: 145px 233px;
+    gap: 0;
+    grid-template-columns: 95px 175px;
     padding: 4px 0;
   }
 
   .summary strong {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 900 !important;
-    min-width: 233px;
+    min-width: 175px;
     text-align: right;
   }
 
