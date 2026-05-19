@@ -68,7 +68,7 @@ button.secondary,
 .invoice-title-row {
   align-items: center;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 16px;
 }
 
@@ -260,8 +260,14 @@ textarea {
   padding: 18px 0;
 }
 
-.invoice-meta > div:last-child {
+.invoice-details {
   text-align: right;
+}
+
+.project-name {
+  font-size: 16px;
+  font-weight: 800;
+  margin-top: 12px !important;
 }
 
 .invoice-meta p,
@@ -421,7 +427,7 @@ td:nth-child(n + 2) {
     padding: 18px;
   }
 
-  .invoice-meta > div:last-child {
+  .invoice-details {
     text-align: left;
   }
 }
