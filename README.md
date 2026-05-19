@@ -5,7 +5,7 @@ Invoice system for SM Architectural Construction. It includes a Node.js/Express 
 ## Features
 
 - Save invoices to MongoDB Atlas
-- Automatically generate invoice numbers starting from `SM-1001`
+- Automatically generate invoice numbers such as `SM/2026/1001`
 - Add multiple invoice items
 - Add discount as a fixed amount or percentage
 - Add advance payment and show balance due

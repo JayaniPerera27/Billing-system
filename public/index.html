@@ -55,7 +55,7 @@
           <div class="items-table">
             <div class="item-row item-head">
               <span>Description</span>
-              <span>Qty</span>
+              <span>Quantity</span>
               <span>Rate</span>
               <span>Total</span>
               <span></span>
@@ -74,10 +74,6 @@
             <label>
               Discount Value
               <input id="discountValue" name="discountValue" type="number" min="0" step="0.01" value="0">
-            </label>
-            <label>
-              Tax / Additional Charges
-              <input id="tax" name="tax" type="number" min="0" step="0.01" value="0">
             </label>
             <label>
               Advance Payment
@@ -103,9 +99,10 @@
 
       <section class="invoice-paper" id="invoicePreview">
         <img class="letterhead" src="/assets/sm-letterhead.png" alt="SM Architectural Construction letterhead">
+        <div class="invoice-band">INVOICE</div>
         <div class="invoice-title-row">
           <div>
-            <p class="eyebrow">Invoice</p>
+            <p class="eyebrow">Invoice Number</p>
             <h2 id="previewInvoiceNumber">New Invoice</h2>
           </div>
           <button id="printInvoice" type="button">Print</button>
@@ -129,7 +126,7 @@
           <thead>
             <tr>
               <th>Description</th>
-              <th>Qty</th>
+              <th>Quantity</th>
               <th>Rate</th>
               <th>Amount</th>
             </tr>
@@ -140,7 +137,6 @@
         <div class="summary">
           <div><span>Subtotal</span><strong id="previewSubtotal">LKR 0.00</strong></div>
           <div><span>Discount</span><strong id="previewDiscount">LKR 0.00</strong></div>
-          <div><span>Tax / Charges</span><strong id="previewTax">LKR 0.00</strong></div>
           <div><span>Total</span><strong id="previewTotal">LKR 0.00</strong></div>
           <div><span>Advance Paid</span><strong id="previewAdvance">LKR 0.00</strong></div>
           <div class="grand-total"><span>Balance Due</span><strong id="previewBalance">LKR 0.00</strong></div>
@@ -149,6 +145,16 @@
         <div class="notes-block">
           <strong>Notes</strong>
           <p id="previewNotes">Thank you for your business.</p>
+        </div>
+
+        <div class="authorization-block">
+          <div class="signature-stack">
+            <img class="company-stamp" src="/assets/company-stamp.jpeg" alt="SM Architectural Construction company stamp">
+            <img class="director-signature" src="/assets/director-signature.png" alt="Director signature">
+            <div class="signature-line"></div>
+            <strong>SHENUKA JAYAWICKRAMA</strong>
+            <span>DIRECTOR</span>
+          </div>
         </div>
       </section>
     </main>

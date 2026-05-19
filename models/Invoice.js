@@ -84,11 +84,6 @@ const invoiceSchema = new mongoose.Schema(
       type: Number,
       min: 0,
       default: 0
-    },
-    tax: {
-      type: Number,
-      min: 0,
-      default: 0
     }
   },
   { timestamps: true }
@@ -109,7 +104,7 @@ invoiceSchema.virtual("discountAmount").get(function discountAmount() {
 });
 
 invoiceSchema.virtual("total").get(function total() {
-  return Math.max(this.subtotal + this.tax - this.discountAmount, 0);
+  return Math.max(this.subtotal - this.discountAmount, 0);
 });
 
 invoiceSchema.virtual("balanceDue").get(function balanceDue() {

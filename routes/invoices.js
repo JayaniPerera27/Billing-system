@@ -2,9 +2,10 @@ const express = require("express");
 const Invoice = require("../models/Invoice");
 
 const router = express.Router();
-const invoiceNumberPattern = /^SM-(\d+)$/;
 
 async function getNextInvoiceNumber() {
+  const currentYear = new Date().getFullYear();
+  const invoiceNumberPattern = new RegExp(`^SM/${currentYear}/(\\d+)$`);
   const invoices = await Invoice.find({ invoiceNumber: invoiceNumberPattern })
     .select("invoiceNumber")
     .lean();
@@ -15,7 +16,7 @@ async function getNextInvoiceNumber() {
     return Math.max(highest, currentNumber);
   }, 1000);
 
-  return `SM-${highestNumber + 1}`;
+  return `SM/${currentYear}/${highestNumber + 1}`;
 }
 
 router.get("/", async (req, res) => {

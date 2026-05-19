@@ -26,9 +26,9 @@ async function setNextInvoiceNumber() {
   try {
     const response = await fetch("/api/invoices/next-number");
     const result = await response.json();
-    form.invoiceNumber.value = result.invoiceNumber || "SM-1001";
+    form.invoiceNumber.value = result.invoiceNumber || `SM/${new Date().getFullYear()}/1001`;
   } catch (error) {
-    form.invoiceNumber.value = "SM-1001";
+    form.invoiceNumber.value = `SM/${new Date().getFullYear()}/1001`;
   }
 }
 
@@ -42,7 +42,6 @@ async function resetFormForNewInvoice() {
   form.invoiceDate.value = today();
   form.discountType.value = "amount";
   form.discountValue.value = 0;
-  form.tax.value = 0;
   form.advancePayment.value = 0;
   itemsContainer.innerHTML = "";
   makeItemRow();
@@ -98,7 +97,6 @@ function readInvoice() {
     discountType: form.discountType.value,
     discountValue: numberValue(form.discountValue.value),
     advancePayment: numberValue(form.advancePayment.value),
-    tax: numberValue(form.tax.value),
     items: readItems().filter((item) => item.description)
   };
 }
@@ -119,7 +117,7 @@ function updatePreview() {
   const invoice = readInvoice();
   const subtotal = invoice.items.reduce((sum, item) => sum + item.quantity * item.rate, 0);
   const discountAmount = calculateDiscount(subtotal, invoice.discountType, invoice.discountValue);
-  const total = Math.max(subtotal + invoice.tax - discountAmount, 0);
+  const total = Math.max(subtotal - discountAmount, 0);
   const balanceDue = Math.max(total - invoice.advancePayment, 0);
   const discountLabel =
     invoice.discountType === "percentage"
@@ -134,7 +132,6 @@ function updatePreview() {
   setText("#previewProject", invoice.projectName ? `Project: ${invoice.projectName}` : "");
   setText("#previewSubtotal", money.format(subtotal));
   setText("#previewDiscount", discountLabel);
-  setText("#previewTax", money.format(invoice.tax));
   setText("#previewTotal", money.format(total));
   setText("#previewAdvance", money.format(invoice.advancePayment));
   setText("#previewBalance", money.format(balanceDue));
@@ -172,7 +169,6 @@ function fillForm(invoice) {
   form.discountType.value = invoice.discountType || "amount";
   form.discountValue.value = invoice.discountValue ?? invoice.discount ?? 0;
   form.advancePayment.value = invoice.advancePayment || 0;
-  form.tax.value = invoice.tax || 0;
   itemsContainer.innerHTML = "";
   (invoice.items || [{ description: "", quantity: 1, rate: 0 }]).forEach(makeItemRow);
   updatePreview();
