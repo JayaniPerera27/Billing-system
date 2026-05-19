@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SM Invoice System</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="workspace">
+        <form id="invoiceForm" class="editor">
+          <div class="editor-header">
+            <div>
+              <p class="eyebrow">Invoice editor</p>
+              <h1>SM Architectural Construction</h1>
+            </div>
+            <button type="submit">Save Invoice</button>
+          </div>
+
+          <div class="grid two">
+            <label>
+              Invoice Number
+              <input id="invoiceNumber" name="invoiceNumber" required readonly>
+            </label>
+            <label>
+              Invoice Date
+              <input id="invoiceDate" name="invoiceDate" type="date" required>
+            </label>
+            <label>
+              Due Date
+              <input id="dueDate" name="dueDate" type="date">
+            </label>
+            <label>
+              Project Name
+              <input id="projectName" name="projectName">
+            </label>
+          </div>
+
+          <div class="grid two">
+            <label>
+              Customer Name
+              <input id="customerName" name="customerName" required>
+            </label>
+            <label>
+              Customer Address
+              <textarea id="customerAddress" name="customerAddress" rows="3"></textarea>
+            </label>
+          </div>
+
+          <div class="items-heading">
+            <h2>Items</h2>
+            <button id="addItem" type="button">Add Item</button>
+          </div>
+          <div class="items-table">
+            <div class="item-row item-head">
+              <span>Description</span>
+              <span>Qty</span>
+              <span>Rate</span>
+              <span>Total</span>
+              <span></span>
+            </div>
+            <div id="items"></div>
+          </div>
+
+          <div class="grid three totals-inputs">
+            <label>
+              Discount Type
+              <select id="discountType" name="discountType">
+                <option value="amount">Amount (Rs)</option>
+                <option value="percentage">Percentage (%)</option>
+              </select>
+            </label>
+            <label>
+              Discount Value
+              <input id="discountValue" name="discountValue" type="number" min="0" step="0.01" value="0">
+            </label>
+            <label>
+              Tax / Additional Charges
+              <input id="tax" name="tax" type="number" min="0" step="0.01" value="0">
+            </label>
+            <label>
+              Advance Payment
+              <input id="advancePayment" name="advancePayment" type="number" min="0" step="0.01" value="0">
+            </label>
+          </div>
+
+          <label>
+            Notes
+            <textarea id="notes" name="notes" rows="3"></textarea>
+          </label>
+        </form>
+
+        <aside class="saved-panel">
+          <div class="panel-header">
+            <h2>Saved Invoices</h2>
+            <button id="refreshInvoices" type="button">Refresh</button>
+          </div>
+          <div id="status" class="status">Loading invoices...</div>
+          <div id="invoiceList" class="invoice-list"></div>
+        </aside>
+      </section>
+
+      <section class="invoice-paper" id="invoicePreview">
+        <img class="letterhead" src="/assets/sm-letterhead.png" alt="SM Architectural Construction letterhead">
+        <div class="invoice-title-row">
+          <div>
+            <p class="eyebrow">Invoice</p>
+            <h2 id="previewInvoiceNumber">New Invoice</h2>
+          </div>
+          <button id="printInvoice" type="button">Print</button>
+        </div>
+
+        <div class="invoice-meta">
+          <div>
+            <strong>Bill To</strong>
+            <p id="previewCustomer">Customer name</p>
+            <p id="previewAddress"></p>
+          </div>
+          <div>
+            <strong>Details</strong>
+            <p id="previewDate">Invoice date</p>
+            <p id="previewDueDate"></p>
+            <p id="previewProject"></p>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Description</th>
+              <th>Qty</th>
+              <th>Rate</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody id="previewItems"></tbody>
+        </table>
+
+        <div class="summary">
+          <div><span>Subtotal</span><strong id="previewSubtotal">LKR 0.00</strong></div>
+          <div><span>Discount</span><strong id="previewDiscount">LKR 0.00</strong></div>
+          <div><span>Tax / Charges</span><strong id="previewTax">LKR 0.00</strong></div>
+          <div><span>Total</span><strong id="previewTotal">LKR 0.00</strong></div>
+          <div><span>Advance Paid</span><strong id="previewAdvance">LKR 0.00</strong></div>
+          <div class="grand-total"><span>Balance Due</span><strong id="previewBalance">LKR 0.00</strong></div>
+        </div>
+
+        <div class="notes-block">
+          <strong>Notes</strong>
+          <p id="previewNotes">Thank you for your business.</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

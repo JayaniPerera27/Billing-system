@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: sm-invoice-system
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: DNS_SERVERS
+        value: 8.8.8.8,1.1.1.1
