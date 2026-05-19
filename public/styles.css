@@ -497,28 +497,59 @@ td:nth-child(2) {
   }
 
   .invoice-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
     margin: 12px 0;
     padding: 10px 0;
   }
 
-  th,
+  .invoice-details {
+    justify-self: end;
+    text-align: left;
+    width: fit-content;
+  }
+
+  .project-name {
+    font-size: 16px;
+    font-weight: 800;
+    margin-top: 12px !important;
+  }
+
+  th {
+    background: #000 !important;
+    color: #fff !important;
+    padding: 6px 8px;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+    text-align: center;
+  }
+
   td {
     padding: 6px 8px;
   }
 
+  td:nth-child(2) {
+    text-align: center;
+  }
+
   .summary {
     margin-top: 12px;
-    width: 350px;
+    width: 390px;
   }
 
   .summary div {
-    gap: 10px;
-    grid-template-columns: 125px 215px;
+    font-weight: 900;
+    gap: 12px;
+    grid-template-columns: 145px 233px;
     padding: 4px 0;
   }
 
   .summary strong {
-    min-width: 215px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900 !important;
+    min-width: 233px;
+    text-align: right;
   }
 
   .grand-total {
@@ -530,22 +561,30 @@ td:nth-child(2) {
   }
 
   .authorization-block {
-    margin-top: 18px;
+    justify-content: flex-start;
+    margin-top: 38px;
+    page-break-inside: avoid;
   }
 
   .signature-stack {
-    min-width: 220px;
+    min-width: 260px;
   }
 
   .company-stamp {
-    max-width: 165px;
+    margin-top: 10px;
+    max-width: 185px;
+    opacity: 0.86;
   }
 
   .director-signature {
-    max-width: 100px;
+    max-width: 115px;
   }
 
   .signature-line {
     width: 178px;
+  }
+
+  .signature-stack span {
+    margin-top: 5px;
   }
 }
