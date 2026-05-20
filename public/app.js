@@ -124,11 +124,12 @@ function updatePreview() {
       ? `${money.format(discountAmount)} (${invoice.discountValue || 0}%)`
       : money.format(discountAmount);
 
-  setText("#previewInvoiceNumber", `Invoice Number : ${invoice.invoiceNumber || "New Invoice"}`);
+  setText("#previewInvoiceNumber", invoice.invoiceNumber || "New Invoice");
   setText("#previewCustomer", invoice.customerName || "Customer name");
   setText("#previewAddress", invoice.customerAddress);
-  setText("#previewDate", invoice.invoiceDate ? `Invoice Date: ${invoice.invoiceDate}` : "Invoice Date");
-  setText("#previewDueDate", invoice.dueDate ? `Due Date: ${invoice.dueDate}` : "");
+  setText("#previewDate", invoice.invoiceDate || "");
+  setText("#previewDueDate", invoice.dueDate || "");
+  document.querySelector("#dueDateRow").hidden = !invoice.dueDate;
   setText("#previewProject", invoice.projectName ? `Project : ${invoice.projectName}` : "");
   setText("#previewSubtotal", money.format(subtotal));
   setText("#previewDiscount", discountLabel);
